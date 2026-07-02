@@ -1,0 +1,40 @@
+import streamlit as st
+import requests
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+llm=ChatGoogleGenerativeAI( model="gemini-2.5-flash",
+    google_api_key="AQ.Ab8RN6L8T3qNygET54P437KpsQ0VPCOkrwkIl5Ct5Xtlw-24sw")
+
+def get_weather(city):
+    url=f"http://api.weatherapi.com/v1/current.json?key=b6e147f4fd904599be051348262706&q={city}&aqi=no"
+    response=requests.get(url)
+    return response.text
+
+def weather_assisstant(city):
+    weather=get_weather(city)
+    prompt=(f"""Weather Information : {weather}
+    Explain the Weather Information and
+    Suggest Outdoor Activities and Wearing Clothes""")
+    response=llm.invoke(prompt)
+    return response.content
+
+st.set_page_config(page_title='AI Weather Assistant',page_icon="🌤️",layout="wide")
+
+st.title("🌤️ AI Weather Assistant")
+
+st.write("-----")
+name=st.text_input("Enter City Name & Click Submit Button")
+
+if st.button("Submit"):
+    if name:
+        with st.spinner("AI Weather Assistant"):
+            answer=weather_assisstant(name)
+        st.success("Weather Report")
+        st.write(answer)
+
+    else:
+        st.error("Please Enter City Name & Click Submit Button")
+
+
+
+
