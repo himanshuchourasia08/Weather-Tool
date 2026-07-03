@@ -1,7 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 import requests
 
-llm=ChatGoogleGenerativeAI(model="gemini-2.5-flash",google_api_key="AQ.Ab8RN6IC-Q6bI7KeVWcDs-xkqxtzEovESOTDe_MaHmNTBHtPAA")
+llm=ChatGoogleGenerativeAI(model="gemini-2.5-flash",google_api_key="****************************")
 
 
 def get_weather(city):
