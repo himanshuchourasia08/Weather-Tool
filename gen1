@@ -3,7 +3,7 @@ import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 llm=ChatGoogleGenerativeAI( model="gemini-2.5-flash",
-    google_api_key="AQ.Ab8RN6L8T3qNygET54P437KpsQ0VPCOkrwkIl5Ct5Xtlw-24sw")
+    google_api_key="**************************************************")
 
 def get_weather(city):
     url=f"http://api.weatherapi.com/v1/current.json?key=b6e147f4fd904599be051348262706&q={city}&aqi=no"
