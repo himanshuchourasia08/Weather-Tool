@@ -5,7 +5,7 @@ llm=ChatGoogleGenerativeAI(model="gemini-2.5-flash",google_api_key="************
 
 
 def get_weather(city):
-    url=(f"http://api.weatherapi.com/v1/current.json?key=b6e147f4fd904599be051348262706&q={city}&aqi=no")
+    url=(f"http://api.weatherapi.com/v1/current.json?key=******************************={city}&aqi=no")
     response = requests.get(url)
     return response.text
 
